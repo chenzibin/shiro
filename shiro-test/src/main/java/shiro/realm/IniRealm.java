@@ -29,7 +29,7 @@ public class IniRealm implements Realm {
         String password = new String((char[]) token.getCredentials());
 
         // 验证用户名密码
-        Ini ini = Ini.fromResourcePath("classpath:shiro.ini");
+        Ini ini = Ini.fromResourcePath("classpath:realm-ini.ini");
         if (!ini.getSection("users").containsKey(username)) {
             // 错误的帐号
             throw new UnknownAccountException();
