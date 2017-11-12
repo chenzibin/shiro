@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="shiro.trigger.TriggerMapper" >
+
+    <resultMap id="resultMap" type="shiro.trigger.Trigger" >
+        <result column="id"         property="id"       />
+        <result column="name"       property="name"     />
+        <result column="desc"       property="desc"     />
+        <result column="type"       property="type"     />
+        <result column="event"      property="event"    />
+        <result column="state"      property="state"    />
+        <result column="actions"    property="actions"  typeHandler="shiro.trigger.TriggerActionTypeHandler" />
+    </resultMap>
+
+    <sql id="trigger_column">
+        `id`,`name`,`desc`,`type`,`event`,`state`,`actions`
+    </sql>
+
+    <!--查询-->
+    <select id="queryAllTrigger"  resultMap="resultMap">
+        select * from sys_trigger
+    </select>
+
+    <insert id="insertTrigger" parameterType="shiro.trigger.Trigger">
+        insert into sys_trigger(<include refid="trigger_column" />)
+        values (#{id},#{name},#{desc},#{type},#{event},#{state},#{actions, typeHandler=shiro.trigger.TriggerActionTypeHandler})
+    </insert>
+</mapper>
