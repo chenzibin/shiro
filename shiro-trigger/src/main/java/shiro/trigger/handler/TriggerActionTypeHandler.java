@@ -1,8 +1,9 @@
-package shiro.trigger;
+package shiro.trigger.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
+import shiro.trigger.TriggerAction;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;

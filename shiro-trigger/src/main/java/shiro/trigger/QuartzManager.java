@@ -7,6 +7,8 @@ public class QuartzManager {
 
     private static SchedulerFactory schedulerFactory = new StdSchedulerFactory();
 
+
+
     /**
      * @Description: 添加一个定时任务
      *
@@ -19,11 +21,13 @@ public class QuartzManager {
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public static void addJob(String jobName, String jobGroupName,
-                              String triggerName, String triggerGroupName, Class jobClass, String cron) {
+                              String triggerName, String triggerGroupName, Class jobClass, String cron, Trigger obj) {
         try {
+            JobDataMap jobDataMap = new JobDataMap();
+            jobDataMap.put("trigger", obj);
             Scheduler sched = schedulerFactory.getScheduler();
             // 任务名，任务组，任务执行类
-            JobDetail jobDetail= JobBuilder.newJob(jobClass).withIdentity(jobName, jobGroupName).build();
+            JobDetail jobDetail= JobBuilder.newJob(jobClass).setJobData(jobDataMap).withIdentity(jobName, jobGroupName).build();
 
             // 触发器
             TriggerBuilder<org.quartz.Trigger> triggerBuilder = TriggerBuilder.newTrigger();

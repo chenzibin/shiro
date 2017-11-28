@@ -6,13 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="shiro-persistent" />
+        <module name="shiro-quartz" />
+        <module name="shiro-service" />
         <module name="shiro-test" />
+        <module name="shiro-trigger" />
         <module name="shiro-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="shiro" target="1.8" />
+      <module name="shiro-persistent" target="1.8" />
+      <module name="shiro-quartz" target="1.8" />
+      <module name="shiro-quartz (1)" target="1.8" />
+      <module name="shiro-service" target="1.8" />
       <module name="shiro-test" target="1.8" />
+      <module name="shiro-trigger" target="1.8" />
       <module name="shiro-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

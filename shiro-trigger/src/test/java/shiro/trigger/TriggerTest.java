@@ -15,13 +15,13 @@ public class TriggerTest {
 
     @Test
     public void testTrigger() throws InterruptedException {
-        QuartzManager.addJob(jobName, jobGroupName, triggerName, triggerGroupName, MyJob_1.class, "0/1 * * * * ?");
+        // QuartzManager.addJob(jobName, jobGroupName, triggerName, triggerGroupName, MyJob_1.class, "0/1 * * * * ?");
         Thread.sleep(5000);
     }
 
     @Test
     public void testTriggerForWebhook() throws InterruptedException {
-        QuartzManager.addJob(jobName, jobGroupName, triggerName, triggerGroupName, Webhook.class, "0/5 * * * * ?");
+        // QuartzManager.addJob(jobName, jobGroupName, triggerName, triggerGroupName, Webhook.class, "0/5 * * * * ?");
         Thread.sleep(20000);
     }
 

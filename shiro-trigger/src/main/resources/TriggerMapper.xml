@@ -3,26 +3,51 @@
 <mapper namespace="shiro.trigger.TriggerMapper" >
 
     <resultMap id="resultMap" type="shiro.trigger.Trigger" >
-        <result column="id"         property="id"       />
-        <result column="name"       property="name"     />
-        <result column="desc"       property="desc"     />
-        <result column="type"       property="type"     />
-        <result column="event"      property="event"    />
-        <result column="state"      property="state"    />
-        <result column="actions"    property="actions"  typeHandler="shiro.trigger.TriggerActionTypeHandler" />
+        <result column="id"             property="id"       />
+        <result column="name"           property="name"     />
+        <result column="desc"           property="desc"     />
+        <result column="type"           property="type"     />
+        <result column="event"          property="event"    />
+        <result column="state"          property="state"    />
+        <result column="actions"        property="actions"      typeHandler="shiro.trigger.handler.TriggerActionTypeHandler" />
+        <result column="condition"      property="condition"    typeHandler="shiro.trigger.handler.TriggerConditionTypeHandler" />
+        <result column="time_strategy"  property="timeStrategy" typeHandler="shiro.trigger.handler.TimeStrategyTypeHandler" />
+        <result column="delay"          property="delay"        />
+        <result column="delay_time"     property="delayTime"    />
+        <result column="delay_unit"     property="delayUnit"    />
+        <result column="create_time"     property="createTime"  />
     </resultMap>
 
     <sql id="trigger_column">
-        `id`,`name`,`desc`,`type`,`event`,`state`,`actions`
+        `id`,`name`,`desc`,`type`,`event`,`state`,`actions`, `condition`, `time_strategy`, `delay`, `delay_time`, `delay_unit`, `create_time`
     </sql>
 
     <!--查询-->
-    <select id="queryAllTrigger"  resultMap="resultMap">
+    <select id="queryAllTrigger"  resultMap="resultMap" parameterType="java.util.Map">
         select * from sys_trigger
+        <where>
+            1=1
+            <if test='state!=null and state!=""'> and state = #{state}</if>
+            <if test='event!=null and event!=""'> and event = #{event}</if>
+            <if test='type!=null and type!=""'> and type = #{type}</if>
+        </where>
     </select>
 
     <insert id="insertTrigger" parameterType="shiro.trigger.Trigger">
         insert into sys_trigger(<include refid="trigger_column" />)
-        values (#{id},#{name},#{desc},#{type},#{event},#{state},#{actions, typeHandler=shiro.trigger.TriggerActionTypeHandler})
+        values (
+            #{id},
+            #{name},
+            #{desc},
+            #{type},
+            #{event},
+            #{state},
+            #{actions, typeHandler=shiro.trigger.handler.TriggerActionTypeHandler},
+            #{condition, typeHandler=shiro.trigger.handler.TriggerConditionTypeHandler},
+            #{timeStrategy, typeHandler=shiro.trigger.handler.TimeStrategyTypeHandler},
+            #{delay},
+            #{delayTime},
+            #{delayUnit}
+        )
     </insert>
 </mapper>

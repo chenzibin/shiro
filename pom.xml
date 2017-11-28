@@ -14,6 +14,8 @@
         <module>shiro-persistent</module>
         <module>shiro-service</module>
         <module>shiro-trigger</module>
+        <module>shiroquartz</module>
+        <module>shiro-quartz</module>
     </modules>
 
     <properties>

@@ -10,6 +10,8 @@ public class TriggerAction {
     /*是否可用*/
     private boolean enable;
 
+    private String[] acceptor;
+
     private String webhook;
 
     private String text;
@@ -44,5 +46,13 @@ public class TriggerAction {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String[] getAcceptor() {
+        return acceptor;
+    }
+
+    public void setAcceptor(String[] acceptor) {
+        this.acceptor = acceptor;
     }
 }
