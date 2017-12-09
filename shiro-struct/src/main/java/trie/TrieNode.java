@@ -1,5 +1,6 @@
 package trie;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class TrieNode {
@@ -8,7 +9,7 @@ public class TrieNode {
 
     private String content;
 
-    private Map<String, TrieNode> nextNode;
+    private Map<String, TrieNode> childNodes;
 
     public String getLetter() {
         return letter;
@@ -26,11 +27,25 @@ public class TrieNode {
         this.content = content;
     }
 
-    public Map<String, TrieNode> getNextNode() {
-        return nextNode;
+    public Map<String, TrieNode> getChildNodes() {
+        return childNodes;
     }
 
-    public void setNextNode(Map<String, TrieNode> nextNode) {
-        this.nextNode = nextNode;
+    public void setChildNodes(Map<String, TrieNode> childNodes) {
+        this.childNodes = childNodes;
+    }
+
+    public void setChildNode(String key, TrieNode node) {
+        if (childNodes == null) {
+            childNodes = new HashMap<>();
+        }
+        childNodes.put(key, node);
+    }
+
+    public TrieNode getChildNode(String key) {
+        if (childNodes == null) {
+            return null;
+        }
+        return childNodes.get(key);
     }
 }
