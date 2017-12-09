@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/shiro-persistent/shiro-persistent.iml" filepath="$PROJECT_DIR$/shiro-persistent/shiro-persistent.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-quartz/shiro-quartz.iml" filepath="$PROJECT_DIR$/shiro-quartz/shiro-quartz.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-service/shiro-service.iml" filepath="$PROJECT_DIR$/shiro-service/shiro-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shiro-struct/shiro-struct.iml" filepath="$PROJECT_DIR$/shiro-struct/shiro-struct.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-test/shiro-test.iml" filepath="$PROJECT_DIR$/shiro-test/shiro-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-trigger/shiro-trigger.iml" filepath="$PROJECT_DIR$/shiro-trigger/shiro-trigger.iml" />
       <module fileurl="file://$PROJECT_DIR$/shiro-web/shiro-web.iml" filepath="$PROJECT_DIR$/shiro-web/shiro-web.iml" />

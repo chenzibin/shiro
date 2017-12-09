@@ -16,6 +16,7 @@
         <module>shiro-trigger</module>
         <module>shiroquartz</module>
         <module>shiro-quartz</module>
+        <module>shiro-struct</module>
     </modules>
 
     <properties>
